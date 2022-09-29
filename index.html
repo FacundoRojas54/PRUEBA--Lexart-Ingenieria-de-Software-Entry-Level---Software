@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="app.css">
+    <title>Document</title>
+</head>
+<body>
+
+  <div id="app" style="width:100%;">
+    <select name="ctipo" id="ctipo" v-model="cliente.tipo">
+      <option disabled selected>Tipo</option>
+      <option value="ConsumidorFinal">Consumidor Final</option>
+      <option value="Empresa">Empresa</option>
+        </select>
+        <input type="text" v-model="cliente.nombre" placeholder="Nombre">
+        <input id=ape type="text" v-model="cliente.apellido" placeholder="Apellido" disabled>
+        <input id="cod" type="number" v-model="cliente.rut" placeholder="RUT" disabled>
+        <input type="number" v-model="cliente.telefono" placeholder="Telefono">
+        <select v-model="cliente.activo">
+          <option selected value="A">Activo</option>
+          <option value="In">Inactivo</option>
+        </select>
+        <button id="b1" @click="guardarItem(),Limpiar()" disabled="true">Agregar</button>
+        <button @click="Limpiar()">Limpiar</button>
+
+        <hr>
+        <div class="container" style="width:100%;">
+          <table >
+            <thead>
+              <tr>
+                 <th scope="col">ID</th>
+                 <th scope="col">Tipo</th>
+                 <th scope="col">Nombre</th>
+                 <th scope="col">Apellido</th>
+                 <th scope="col">RUT</th>
+                 <th scope="col">Telefono</th>
+                 <th scope="col">Estado</th>
+                 <th scope="col"></th>
+                 <th scope="col"></th>
+
+                </tr>
+              </thead>
+              <tbody v-for="(itm, index) in items">
+                <tr>
+                  <td><span>#{{itm._id}}</span></td>
+                  <td><span>{{itm.tipo}}</span></td>
+                  <td><span>{{itm.nombre}}</span></td>
+                  <td><span>{{itm.apellido}}</span></td>
+                  <td><span>{{itm.rut}}</span></td>
+                  <td><span>{{itm.telefono}}</span></td>
+                  <td><span>{{itm.activo}}</span></td>
+                  <td><button @click="eliminarItem(itm._id)">Delete</button></td>
+                  <td><button @click="editarItem(itm)">Select</button></td>
+                </tr>
+
+              </tbody>
+
+            </table>
+          </div>
+        </div>
+
+<!-- Condiciones INPUTS -->
+
+         <script>
+
+          //Si el cliente es consumidor final no permite poner RUT
+         $( function() {
+          $("#ctipo").change( function() {
+              if ($(this).val() === "ConsumidorFinal") {
+                $("#cod").prop("disabled", true);
+              } else {
+                $("#cod").prop("disabled", false);
+           }
+        });
+          });
+
+
+
+
+
+          //Si el cliente es una empresa no deja poner Apellido
+         $( function() {
+          $("#ctipo").change( function() {
+            if ($(this).val() === "Empresa") {
+              $("#ape").prop("disabled", true);
+            } else {
+              $("#ape").prop("disabled", false);
+            }
+          });
+        });
+
+
+
+        //Si no elige tipo de cliente no le permite registrarse
+
+        $( function() {
+          $("#ctipo").change( function() {
+            if ($(this).val() === "") {
+              $("#b1").prop("disabled", true);
+            } else {
+              $("#b1").prop("disabled", false);}
+            });
+       });
+
+
+  </script>
+         
+           
+           
+         <script src="clientes.service.js"></script>
+         <script src="app.js"></script>
+    
+</body>
+</html>

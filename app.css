@@ -1,0 +1,109 @@
+
+button {
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  background: #0097bd;
+  box-shadow: 0 5px #042057;
+}
+button:hover {
+  box-shadow: 0 3px #042057;
+  top: 1px;
+}
+button:active {
+  box-shadow: 0 0 #042057;
+  top: 5px;
+}
+
+input {
+  width: 150px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #def;
+  border: 0;
+  background-color: #eee;
+  border: 0;
+  outline: none;
+  background-color: #dfe;
+  border: 0;
+  border-radius: 5px;
+  border: 1px solid #39c;
+}
+
+select{
+  width: 150px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #def;
+  border: 0;
+  background-color: #eee;
+  border: 0;
+  outline: none;
+  background-color: #dfe;
+  border: 0;
+  border-radius: 5px;
+  border: 1px solid #39c;
+
+}
+
+option{
+  width: 150px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #def;
+  border: 0;
+  background-color: #eee;
+  border: 0;
+  outline: none;
+  background-color: #dfe;
+  border: 0;
+  border-radius: 5px;
+  border: 1px solid #39c;
+
+}
+
+
+body{
+	background-color: #1a4651;
+	font-family: Arial;
+}
+
+#main-container{
+	margin: 150px auto;
+	width: 600px;
+}
+
+table{
+	background-color: #1a4651;
+	text-align: left;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th, td{
+	padding: 20px;
+}
+
+thead{
+	background-color: #0097bd;
+	border-bottom: solid 5px #1a4651;
+	color: white;
+}
+
+tr:nth-child(even){
+	background-color: #ddd;
+}
+
+tr:hover td{
+	background-color: #0f3039;
+	color: white;
+}
